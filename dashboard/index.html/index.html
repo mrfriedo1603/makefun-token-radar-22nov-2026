@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signal Radar — Token Launch Radar</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1>Signal Radar</h1>
+    <p class="sub">Token launch radar — protocols that record no token yet, ranked by implied value.</p>
+  </div>
+  <div class="meta" id="meta"></div>
+</header>
+
+<section class="stats" id="stats"></section>
+
+<section class="controls">
+  <label>Search <input id="q" type="search" placeholder="protocol name or slug" autocomplete="off"></label>
+  <label>Category <select id="cat"><option value="">All categories</option></select></label>
+  <label>Sort by
+    <select id="sort">
+      <option value="value">Implied value</option>
+      <option value="tvl">TVL</option>
+      <option value="growth">7-day change</option>
+      <option value="name">Name A–Z</option>
+    </select>
+  </label>
+  <label class="check"><input id="watch" type="checkbox"> Watchlist only</label>
+  <label class="check"><input id="high" type="checkbox"> High confidence only</label>
+</section>
+
+<main>
+  <table id="board">
+    <thead>
+      <tr>
+        <th class="num">#</th>
+        <th>Protocol</th>
+        <th>Category</th>
+        <th>Chains</th>
+        <th class="num">TVL</th>
+        <th class="num">7d</th>
+        <th class="num">Multiple</th>
+        <th class="num">Implied value</th>
+        <th>Confidence</th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <p class="count" id="count"></p>
+</main>
+
+<section class="detail" id="detail">
+  <p class="hint">Click a row to open its detail view: the value math and its farm plan.</p>
+</section>
+
+<footer>
+  <h2>How the number is made</h2>
+  <p id="method"></p>
+  <p class="fine">A protocol is listed as “records no token” when the snapshot records no market cap, CoinGecko id or symbol for it — that is the snapshot's record, never a promise that no token exists or that one will be issued. Implied value is this board's own claim, not a price and not investment advice. Snapshot source and date are shown above; the board never calls a live API.</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
